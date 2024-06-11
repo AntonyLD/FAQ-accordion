@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: border-box;
+}
+
+/*min-width: 375px and 768px */
+    
+@media screen and (min-width: 375px) and (max-width:768px ){
+    body{
+        background-image: url(assets/images/background-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        background-size:cover;
+    
+    }
+}
