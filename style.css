@@ -16,6 +16,7 @@
         color: #2f1533;
         font-family: "Work Sans"
         
+        
     }
     #background{
         background-image: url(assets/images/background-pattern-mobile.svg);
@@ -49,7 +50,9 @@
         background-color: #ffffff;
         border-radius: 5px;
         padding: 25px 25px 0px 25px ;
-        box-shadow: 1px 1px 10px #29292934;   
+        box-shadow: 1px 1px 10px #29292934; 
+        z-index: 1;
+        
     }
 
     #main-container p {
@@ -74,9 +77,11 @@
     
 
     .resposta{
+        
         display: block !important;
         color:  hsl(292, 16%, 49%) !important;
         padding-bottom: 25px !important;
+        
     }
 
     
@@ -85,11 +90,11 @@
     }
 
     .attribution{
+        width: 250px;
         position: absolute;
         top: 670px;
         align-self: center;
         text-align: center;
-        
     }
     
 
