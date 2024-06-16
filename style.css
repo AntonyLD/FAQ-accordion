@@ -98,7 +98,7 @@
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1440px ){    
+@media screen and (min-width: 768px) and (max-width: 1900px ){    
     body{
         background-color: #f9f0ff;
         position: relative;

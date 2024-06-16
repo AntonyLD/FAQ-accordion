@@ -1,87 +1,40 @@
-
-//declaração
+// seleção
+const questionsPara = document.querySelectorAll(".questions p")
 const questionsImg = document.querySelectorAll(".questions img")
-const questionsParagrafo = document.querySelectorAll(".questions p")
-const answer = document.querySelectorAll(".hide")
+const answers = document.querySelectorAll(".main-questions div")
 
-questionsImg.forEach((image) => {
-    image.setAttribute('data-original-src', image.src);
-});
+//funçao
 
-
-//funções
-function hide(index){
-     answer[index].classList.toggle("hide");
-     answer[index].classList.toggle("resposta") 
+//troca a classe da div
+function mostrarDiv(questionsPara, index) {
+    answers[index].classList.toggle("hide");
+    answers[index].classList.toggle("resposta")
 }
 
-function replaceImg(e, index){
-    const clickImg = e.target
-    const originalImg = clickImg.getAttribute("data-original-src");
-    const newSrc = "assets/images/icon-minus.svg"
-    
-    if(clickImg.src === new URL(newSrc, window.location.href).href){
-        clickImg.src = originalImg
-    } else {
-        clickImg.src = newSrc
+//pega o nome da classe e compara com a classe atual da div
+function tradeImg(questionsPara, index) {
+    const indice = answers[index].className
+
+    if (indice === "hide") {
+        questionsImg[index].src = "assets/images/icon-plus.svg"
+    } else if (indice === "resposta") {
+        questionsImg[index].src = "assets/images/icon-minus.svg"
     }
 }
 
-function reaplceParagrafo(index){
-    
-}
+//evento
 
-//eventos
-questionsImg.forEach((questionsImg, index) =>{
-    questionsImg.addEventListener("click",() =>{
-        hide(index);
-    });
-    questionsImg.addEventListener("click", (e) =>{
-        replaceImg(e, index)
-        
+//evento de click sobre a imagem e sobre o paragrafo
+questionsPara.forEach((questionsPara, index) => {
+    questionsPara.addEventListener("click", () => {
+        mostrarDiv(questionsPara, index)
+        tradeImg(questionsPara, index)
     });
 });
 
-questionsParagrafo.forEach((questionsParagrafo, index) =>{
-    questionsParagrafo.addEventListener("click",() =>{
-        hide(index);
+questionsImg.forEach((questionsPara, index) =>{
+    questionsPara.addEventListener("click", () => {
+        mostrarDiv(questionsPara, index)
+        tradeImg(questionsPara, index)
     });
-
-});
-
-
-
-
-
-// //seleção
-// const questionsPara = document.querySelectorAll(".questions p")
-
-// const questionsImg = document.querySelectorAll(".questions img")
-
-
-// const answers = document.querySelectorAll(".main-questions div")
-
-// //funçao
-// function mostrarDiv(questionsPara, index) {
-//     answers[index].classList.toggle("hide");
-//     answers[index].classList.toggle("resposta")
-// }
-
-// function tradeImg(questionsPara, index) {
-//     const indice = answers[index].className
-
-//     if (indice === "hide") {
-//         questionsImg[index].src = "http://127.0.0.1:5501/assets/images/icon-plus.svg"
-//     } else if (indice === "resposta") {
-//         questionsImg[index].src = "http://127.0.0.1:5501/assets/images/icon-minus.svg"
-//     }
-// }
-
-// //evento
-
-// questionsPara.forEach((questionsPara, index) => {
-//     questionsPara.addEventListener("click", (e) => {
-//         mostrarDiv(questionsPara, index)
-//         tradeImg(questionsPara, index)
-//     });
-// });
+})
